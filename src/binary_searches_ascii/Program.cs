@@ -11,7 +11,7 @@ for (int i = 0; i < n; i++)
 }
 Array.Sort(a);
 
-int target = 55;
+int target = 0;
 
 int x = BinarySearchBase(a, target);
 if (x == -1)
