@@ -2,7 +2,7 @@
 using System.Text;
 
 var rand = new Random(Seed: 333);
-var n = 35; // Github's UI doesn't use 100% width so a small number will have to do.
+var n = 25; // Github's UI doesn't use 100% width so a small number will have to do.
 var max = 100;
 
 var a = new int[n];
@@ -11,9 +11,6 @@ for (int i = 0; i < n; i++)
   a[i] = rand.Next(minValue: 0, maxValue: max + 1); // maxValue is exclusive
 }
 Array.Sort(a);
-// 1 3 4 6 6 7 10 12 14 16 17 19 20 23 23 23 25 26 27 32 33 34 36 37 44 45 48 50 53 53 53 55 55 55 57 62 63 64 65 68 68 69 70 71 72 85 87 92 96 100
-
-
 
 // return
 

@@ -1,24 +1,24 @@
-Running binary search variants for the same target: -10 (Smaller than the smallest element)
+Running binary search variants for the same target: 6 (First element)
 
-Target: -10 (Smaller than the smallest element), Binary search variant: Wikipedia, base algo
+Target: 6 (First element), Binary search variant: Wikipedia, base algo
   6 6 7 10 17 25 27 33 36 44 45 50 53 53 55 55 55 57 62 64 69 70 72 85 100
   L                                                                    R  
   L                             R                                         
   L        R                                                              
   L R                                                                     
-R L                                                                       
-^                                                                         
-<Not found>
-Target: -10 (Smaller than the smallest element), Binary search variant: Wikipedia, Hermann Bottenbruch version, one less if in the loop
+  ^                                                                       
+<Found>
+Target: 6 (First element), Binary search variant: Wikipedia, Hermann Bottenbruch version, one less if in the loop
   6 6 7 10 17 25 27 33 36 44 45 50 53 53 55 55 55 57 62 64 69 70 72 85 100
   L                                                                    R  
   L                             R                                         
   L           R                                                           
   L   R                                                                   
-  X                                                                       
-^                                                                         
-<Not found>
-Target: -10 (Smaller than the smallest element), Binary search variant: Wikipedia, binary_search_leftmost
+    L R                                                                   
+    X                                                                     
+    ^                                                                     
+<Found>
+Target: 6 (First element), Binary search variant: Wikipedia, binary_search_leftmost
   6 6 7 10 17 25 27 33 36 44 45 50 53 53 55 55 55 57 62 64 69 70 72 85 100
   L                                                                        R
   L                                R                                      
@@ -28,13 +28,13 @@ Target: -10 (Smaller than the smallest element), Binary search variant: Wikipedi
   X                                                                       
   ^                                                                       
 <Found>
-Target: -10 (Smaller than the smallest element), Binary search variant: Wikipedia, binary_search_rightmost
+Target: 6 (First element), Binary search variant: Wikipedia, binary_search_rightmost
   6 6 7 10 17 25 27 33 36 44 45 50 53 53 55 55 55 57 62 64 69 70 72 85 100
   L                                                                        R
   L                                R                                      
   L              R                                                        
   L     R                                                                 
-  L R                                                                     
-  X                                                                       
-^                                                                         
-<Not found>
+      L R                                                                 
+      X                                                                   
+    ^                                                                     
+<Found>
