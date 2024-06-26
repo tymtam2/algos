@@ -2,7 +2,7 @@
 using System.Text;
 
 var rand = new Random(Seed: 333);
-var n = 50;
+var n = 35; // Github's UI doesn't use 100% width so a small number will have to do.
 var max = 100;
 
 var a = new int[n];
