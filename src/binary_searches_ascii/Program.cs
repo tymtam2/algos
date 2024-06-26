@@ -17,12 +17,12 @@ Array.Sort(a);
 
 // return
 
-var binarySearches = new (string Description, Func<StringBuilder, int[], int, int> F)[]
+var binarySearches = new (string Description, string NameForFileName, Func<StringBuilder, int[], int, int> F)[]
 {
-  ("Wikpedia, base algo", BinarySearchBase),
-  ("Wikpedia, Hermann Bottenbruch version, one less if in the loop", BinarySearchLessIfs),
-  ("binary_search_leftmost", binary_search_leftmost),
-  ("binary_search_rightmost", binary_search_rightmost)
+  ("Wikipedia, base algo", "wikipedia_base", BinarySearchBase),
+  ("Wikipedia, Hermann Bottenbruch version, one less if in the loop", "wikipedia_fewerifs", BinarySearchLessIfs),
+  ("Wikipedia, binary_search_leftmost", "wikipedia_leftmost", binary_search_leftmost),
+  ("Wikipedia, binary_search_rightmost", "wikipedia_rightmost", binary_search_rightmost)
 };
 Console.WriteLine("TODO Left bisect");
 Console.WriteLine("TODO right bisect");
@@ -32,28 +32,49 @@ Console.WriteLine("TODO right bisect");
   ("First element",a[0]),
   ("Repeated element",55),
   ("Last element",a[a.Length-1]),
-  ("Greater than the larget element", -10),
+  ("Greater than the larget element", 110),
   ];
 
-// Stage 1. Differnt algos for a number
+Directory.CreateDirectory("outputs");
+
+// Stage 1. For a number show different algorithms
 foreach (var target in targets)
+{
+  StringBuilder sb = new();
+  sb.AppendLine($"Running binary search variants for the same target: {target.Target} ({target.Description})");
+  sb.AppendLine();
   foreach (var search in binarySearches)
   {
-    StringBuilder sb = new();
-    Search(sb, a, target, search);
+    Search(sb, a, target, search.F, search.Description);
   }
+  File.WriteAllText($"outputs/target_{target.Target}_multiple_binary_search_variants.txt", sb.ToString());
+}
+
+// Stage 2. For each algorithm show behaviour for different numbers 
+foreach (var search in binarySearches)
+{
+  StringBuilder sb = new();
+  sb.AppendLine($"Running XXX binary search variant: '{search.Description}' for multiple targets");
+  sb.AppendLine();
+  foreach (var target in targets)
+  {
+    Search(sb, a, target, search.F, search.Description);
+    sb.AppendLine();
+  }
+  File.WriteAllText($"outputs/binary_search_{search.NameForFileName}_multiple_targets.txt", sb.ToString());
+}
 
 static void Search(
   StringBuilder sb,
   int[] a,
   (string Description, int Target) target,
-  (string Description, Func<StringBuilder, int[], int, int> F) search)
+  Func<StringBuilder, int[], int, int> fsearch,
+  string searchDescription)
 {
-  sb.AppendLine($"Running {search.Description}, target {target.Target} ({target.Description})");
+  sb.AppendLine($"Target: {target.Target} ({target.Description}), Binary search variant: {searchDescription}");
 
-  int index = search.F(sb, a, target.Target);
 
-  sb.AppendLine(sb.ToString());
+  int index = fsearch(sb, a, target.Target);
   if (index == -1)
     sb.AppendLine("<Not found>");
   else
