@@ -2,6 +2,10 @@
 
 See [src/binary_searches_ascii/outputs/](src/binary_searches_ascii/outputs/) to see how differnt binary search variants arrive at a result.
 
+Legend:
+ * `L`, `R`, `X` - locations of the left and right pointers, `X` means `L` and `R` are equal.
+ * `^` - function's return value.
+
 For example, here are two algorithms lookking for 55, which is a repeated number.
 ```
 Target: 55 (Repeated element), Binary search variant: Wikipedia, binary_search_leftmost
