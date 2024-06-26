@@ -91,5 +91,13 @@ Not found
 
 # TODOs
 
-1. TODO Repeat for target 0
-2. TODO Print the r at index length for variants that start after the array; same for left 
+1. Create:
+  1. All algos for:
+      1.  -2 smaller than the first, not included
+      2.  0
+      3.  55 
+      4.  100 (last item)
+      5.  102 bigger than the last, not included
+  2. How each algorithm behaves for the values above (same as 1. but from a different perspective) 
+2. Maybe fix print for L<-1 and R>0;
+3. Investigate why binary_search_leftmost never returns -1 (rightmost does)

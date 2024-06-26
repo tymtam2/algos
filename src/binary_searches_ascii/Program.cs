@@ -1,4 +1,5 @@
-﻿using System.Text;
+﻿using System.Runtime.CompilerServices;
+using System.Text;
 
 var rand = new Random(Seed: 333);
 var n = 50;
@@ -10,70 +11,90 @@ for (int i = 0; i < n; i++)
   a[i] = rand.Next(minValue: 0, maxValue: max + 1); // maxValue is exclusive
 }
 Array.Sort(a);
-
-int target = 0;
-
-int x = BinarySearchBase(a, target);
-if (x == -1)
-  Console.WriteLine("Not found");
-x = BinarySearchLessIfs(a, target);
-if (x == -1)
-  Console.WriteLine("Not found");
-
-x = binary_search_leftmost(a, target);
-if (x == -1)
-  Console.WriteLine("Not found");
-
-x = binary_search_rightmost(a, target);
-if (x == -1)
-  Console.WriteLine("Not found");
-
-Console.WriteLine("TODO Left bisect");  
-Console.WriteLine("TODO right bisect");  
-
-Console.WriteLine("TODO Repeat for target 0");  
-Console.WriteLine("TODO Print the r at index length for variants that start after the array");
+// 1 3 4 6 6 7 10 12 14 16 17 19 20 23 23 23 25 26 27 32 33 34 36 37 44 45 48 50 53 53 53 55 55 55 57 62 63 64 65 68 68 69 70 71 72 85 87 92 96 100
 
 
-int BinarySearchBase(int[] a, int target)
+
+// return
+
+var binarySearches = new (string Description, Func<StringBuilder, int[], int, int> F)[]
 {
-  Console.WriteLine($"Base implementation, target {target}");
-  Console.WriteLine($"{string.Join(" ", a)}");
+  ("Wikpedia, base algo", BinarySearchBase),
+  ("Wikpedia, Hermann Bottenbruch version, one less if in the loop", BinarySearchLessIfs),
+  ("binary_search_leftmost", binary_search_leftmost),
+  ("binary_search_rightmost", binary_search_rightmost)
+};
+Console.WriteLine("TODO Left bisect");
+Console.WriteLine("TODO right bisect");
 
+(string Description, int Target)[] targets = [
+  ("Smaller than the smallest element", -10),
+  ("First element",a[0]),
+  ("Repeated element",55),
+  ("Last element",a[a.Length-1]),
+  ("Greater than the larget element", -10),
+  ];
+
+// Stage 1. Differnt algos for a number
+foreach (var target in targets)
+  foreach (var search in binarySearches)
+  {
+    StringBuilder sb = new();
+    Search(sb, a, target, search);
+  }
+
+static void Search(
+  StringBuilder sb,
+  int[] a,
+  (string Description, int Target) target,
+  (string Description, Func<StringBuilder, int[], int, int> F) search)
+{
+  sb.AppendLine($"Running {search.Description}, target {target.Target} ({target.Description})");
+
+  int index = search.F(sb, a, target.Target);
+
+  sb.AppendLine(sb.ToString());
+  if (index == -1)
+    sb.AppendLine("<Not found>");
+  else
+    sb.AppendLine("<Found>");
+}
+
+
+int BinarySearchBase(StringBuilder sb, int[] a, int target)
+{
   var l = 0;
   var r = a.Length - 1;
-  Print(prefix: null, a, l: l, r: r, printArray: false);
+  Print(sb, prefix: null, a, l: l, r: r, printArray: true);
 
   while (l <= r)
   {
     var mid = (l + r) / 2;
     if (a[mid] == target)
     {
-      Print(prefix: null, a, l: mid, r: mid, printArray: false, lrc: '^');
+      Print(sb, prefix: null, a, l: mid, r: mid, printArray: false, lrc: '^');
       return mid;
     }
     else if (a[mid] < target)
     {
       l = mid + 1;
     }
-    else 
+    else
     {
       r = mid - 1;
     }
-    Print(prefix: null, a, l: l, r: r, printArray: false);
+    Print(sb, prefix: null, a, l: l, r: r, printArray: false);
   }
 
+  Print(sb, prefix: null, a, l: -1, r: -1, printArray: false, lrc: '^');
   return -1;
 }
 
-int BinarySearchLessIfs(int[] a, int target)
+int BinarySearchLessIfs(StringBuilder sb, int[] a, int target)
 {
-  Console.WriteLine($"Hermann Bottenbruch version, one less if in the loop, target {target}");
-  Console.WriteLine($"{string.Join(" ", a)}");
-
   var l = 0;
   var r = a.Length - 1;
-  Print(prefix: null, a, l: l, r: r, printArray: false);
+  Print(sb, prefix: null, a, l: l, r: r, printArray: true);
 
   while (l != r)
   {
@@ -86,24 +107,22 @@ int BinarySearchLessIfs(int[] a, int target)
     {
       l = mid;
     }
-    Print(prefix: null, a, l: l, r: r, printArray: false);
+    Print(sb, prefix: null, a, l: l, r: r, printArray: false);
   }
   if (a[l] == target)
   {
-     Print(prefix: null, a, l: l, r: l, printArray: false, lrc: '^');
+    Print(sb, prefix: null, a, l: l, r: l, printArray: false, lrc: '^');
     return l;
   }
+  Print(sb, prefix: null, a, l: -1, r: -1, printArray: false, lrc: '^');
   return -1;
 }
 
-int binary_search_leftmost(int[] a, int target)
+int binary_search_leftmost(StringBuilder sb, int[] a, int target)
 {
-  Console.WriteLine($"binary_search_leftmost, target {target}");
-  Console.WriteLine($"{string.Join(" ", a)}");
-
   var l = 0;
   var r = a.Length;
-  Print(prefix: null, a, l: l, r: r, printArray: false);
+  Print(sb, prefix: null, a, l: l, r: r, printArray: true);
 
   while (l < r)
   {
@@ -116,52 +135,49 @@ int binary_search_leftmost(int[] a, int target)
     {
       r = mid;
     }
-    Print(prefix: null, a, l: l, r: r, printArray: false);
+    Print(sb, prefix: null, a, l: l, r: r, printArray: false);
   }
 
-  Print(prefix: null, a, l: l, r: l, printArray: false, lrc: '^');
+  Print(sb, prefix: null, a, l: l, r: l, printArray: false, lrc: '^');
   return l;
 }
 
 
-int binary_search_rightmost(int[] a, int target)
+int binary_search_rightmost(StringBuilder sb, int[] a, int target)
 {
-  Console.WriteLine($"binary_search_rightmost, target {target}");
-  Console.WriteLine($"{string.Join(" ", a)}");
-
   var l = 0;
   var r = a.Length;
-  Print(prefix: null, a, l: l, r: r, printArray: false);
+  Print(sb, prefix: null, a, l: l, r: r, printArray: true);
 
   while (l < r)
   {
     var mid = (l + r) / 2;
     if (a[mid] > target)
     {
-      r = mid;  
+      r = mid;
     }
     else
     {
       l = mid + 1;
     }
-    Print(prefix: null, a, l: l, r: r, printArray: false);
+    Print(sb, prefix: null, a, l: l, r: r, printArray: false);
 
   }
-  Print(prefix: null, a, l: r-1, r: r-1, printArray: false, lrc: '^');
-    
-  return r-1;
+
+  Print(sb, prefix: null, a, l: r - 1, r: r - 1, printArray: false, lrc: '^');
+  return r - 1;
 }
 
-
-
-// Print(prefix: "", a, l: 0, r: a.Length - 1, printArray: true);
-
-// for (int i = 0; i < 10; i += 10)
-// {
-//   Print(prefix: null, a, l: i, r: a.Length - 1, printArray: false, ic: '*');
-// }
-
+// Test with 
+// foreach (var l in new int[] { -10, -1, 0, a.Length - 1, a.Length, a.Length + 10 })
+//   foreach (var r in new int[] { -10, -1, 0, a.Length - 1, a.Length, a.Length + 10 })
+//   {
+//     StringBuilder sb = new ();
+//       sb.AppendLine($"----------L={l} R={r}");
+//     Print(sb, prefix: null, a, l: l, r: r, printArray: true);
+//   }
 static void Print(
+  StringBuilder sb,
   string? prefix,
   int[] a,
   int l,
@@ -170,20 +186,79 @@ static void Print(
   char rc = 'R',
   char lrc = 'X',
   char ic = ' ',
-  bool printArray = true)
+  bool printArray = true,
+  bool supportsOutOfBounds = true)
 {
-  StringBuilder sb = new();
+
+
+  string? outOfBoundPrefix = null;
+  int? outOfBoundPrefixPadding = null;
+  if (l < 0 && r < 0)
+  {
+    if (l < -1 && r < -1)
+    {
+      outOfBoundPrefix = $"<< L:{l},R:{r}";
+      outOfBoundPrefixPadding = 0;
+    }
+    else
+    {
+      if (l == r)
+        outOfBoundPrefix = lrc + " ";
+      else
+        outOfBoundPrefix = lc + " ";
+
+      outOfBoundPrefixPadding = 2;
+    }
+  }
+  else if (l < 0)
+  {
+    if (l < -1)
+    {
+      outOfBoundPrefix = $"L:{l} ";
+    }
+    else // l == -1
+    {
+      outOfBoundPrefix = lc + " ";
+    }
+    outOfBoundPrefixPadding = outOfBoundPrefix.Length;
+  }
+  else if (r < 0)
+  {
+    if (r < -1)
+    {
+      outOfBoundPrefix = $"R:{r} ";
+    }
+    else // r == -1
+    {
+      outOfBoundPrefix = rc + " ";
+    }
+    outOfBoundPrefixPadding = outOfBoundPrefix.Length;
+  }
+  if (outOfBoundPrefixPadding is null && supportsOutOfBounds)
+  {
+    outOfBoundPrefixPadding = 2;
+  }
+
   if (printArray)
   {
-    sb.AppendLine($"{prefix}{string.Join(" ", a)}, {l}-{r}");
+    sb.Append(prefix);
+    if (outOfBoundPrefixPadding != null)
+    {
+      for (int i = 0; i < outOfBoundPrefixPadding.Value; i++) sb.Append(' ');
+    }
+    sb.Append(string.Join(" ", a));
+    sb.AppendLine();
   }
+
 
   var prefixlen = prefix?.Length ?? 0; // +1 for space
 
-  for (int i = 0; i < prefixlen; i++)
-  {
-    sb.Append(' ');
-  }
+  for (int i = 0; i < prefixlen; i++) sb.Append(' ');
+  if (outOfBoundPrefix is not null)
+    sb.Append(outOfBoundPrefix);
+  if (outOfBoundPrefix is null && outOfBoundPrefixPadding is not null)
+    for (int i = 0; i < outOfBoundPrefixPadding.Value; i++) sb.Append(' ');
+
   for (int i = 0; i < a.Length; i++)
   {
     if (i != 0) sb.Append(' ');
@@ -208,8 +283,46 @@ static void Print(
       sb.Append(rc);
       for (int j = 0; j < sn - 1; j++) sb.Append(' ');
     }
-
   }
 
-  Console.WriteLine(sb.ToString());
+  string? outOfBoundPostfix = null;
+  if (l > (a.Length - 1) && r > (a.Length - 1))
+  {
+    if (l > a.Length || r > a.Length)
+    {
+      outOfBoundPostfix = $">> L:{l},R:{r}";
+    }
+    else
+    {
+      if (l == r)
+        outOfBoundPostfix = " " + lrc;
+      else
+        outOfBoundPostfix = " " + rc;
+    }
+  }
+  else if (l > a.Length - 1)
+  {// Only L
+    if (l > a.Length - 1 + 1)
+    {
+      outOfBoundPostfix = $" L:{l}";
+    }
+    else // l == a.Length 
+    {
+      outOfBoundPostfix = " " + lc;
+    }
+  }
+  else if (r > a.Length - 1)
+  {
+
+    if (r > a.Length)
+    {
+      outOfBoundPostfix = $" R:{r}";
+    }
+    else // l == a.Length 
+    {
+      outOfBoundPostfix = " " + rc;
+    }
+  }
+  if (outOfBoundPostfix is not null) sb.Append(outOfBoundPostfix);
+  sb.AppendLine();
 }
