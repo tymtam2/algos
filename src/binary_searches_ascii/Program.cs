@@ -49,7 +49,7 @@ foreach (var target in targets)
 foreach (var search in binarySearches)
 {
   StringBuilder sb = new();
-  sb.AppendLine($"Running variant: '{search.Description}' for multiple targets");
+  sb.AppendLine($"Running variant '{search.Description}' for multiple targets");
   sb.AppendLine();
   foreach (var target in targets)
   {
@@ -66,11 +66,13 @@ static void Search(
   Func<StringBuilder, int[], int, int> fsearch,
   string searchDescription)
 {
-  sb.AppendLine($"Target: {target.Target} ({target.Description}), Binary search variant: {searchDescription}");
+  sb.AppendLine($"Variant: {searchDescription}, target: {target.Target} ({target.Description})");
 
 
   int index = fsearch(sb, a, target.Target);
   sb.AppendLine($"Returned: {index}");
+  sb.AppendLine();
+  
 }
 
 

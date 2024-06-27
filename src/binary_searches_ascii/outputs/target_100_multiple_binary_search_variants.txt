@@ -1,6 +1,6 @@
 Running binary search variants for the same target: 100 (Last element)
 
-Target: 100 (Last element), Binary search variant: Base variant
+Variant: Base variant, target: 100 (Last element)
     6 6 7 10 17 25 27 33 36 44 45 50 53 53 55 55 55 57 62 64 69 70 72 85 100  n=25
     L                                                                    R  
 1                                       L                                R  
@@ -9,7 +9,8 @@ Target: 100 (Last element), Binary search variant: Base variant
 4                                                                        X  
                                                                          ^  
 Returned: 24
-Target: 100 (Last element), Binary search variant: Hermann Bottenbruch version, one less if in the loop
+
+Variant: Hermann Bottenbruch version, one less if in the loop, target: 100 (Last element)
     6 6 7 10 17 25 27 33 36 44 45 50 53 53 55 55 55 57 62 64 69 70 72 85 100  n=25
     L                                                                    R  
 1                                    L                                   R  
@@ -19,7 +20,8 @@ Target: 100 (Last element), Binary search variant: Hermann Bottenbruch version, 
 5                                                                        X  
                                                                          ^  
 Returned: 24
-Target: 100 (Last element), Binary search variant: Python's bisect_left
+
+Variant: Python's bisect_left, target: 100 (Last element)
     6 6 7 10 17 25 27 33 36 44 45 50 53 53 55 55 55 57 62 64 69 70 72 85 100  n=25
     L                                                                        R
 1                                       L                                    R
@@ -29,7 +31,8 @@ Target: 100 (Last element), Binary search variant: Python's bisect_left
 5                                                                        X  
                                                                          ^  
 Returned: 24
-Target: 100 (Last element), Binary search variant: Python's bisect_right
+
+Variant: Python's bisect_right, target: 100 (Last element)
     6 6 7 10 17 25 27 33 36 44 45 50 53 53 55 55 55 57 62 64 69 70 72 85 100  n=25
     L                                                                        R
 1                                       L                                    R
@@ -38,3 +41,4 @@ Target: 100 (Last element), Binary search variant: Python's bisect_right
 4                                                                            X
                                                                              ^
 Returned: 25
+

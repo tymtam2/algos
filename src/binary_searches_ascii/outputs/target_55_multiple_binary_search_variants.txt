@@ -1,13 +1,14 @@
 Running binary search variants for the same target: 55 (Repeated element)
 
-Target: 55 (Repeated element), Binary search variant: Base variant
+Variant: Base variant, target: 55 (Repeated element)
     6 6 7 10 17 25 27 33 36 44 45 50 53 53 55 55 55 57 62 64 69 70 72 85 100  n=25
     L                                                                    R  
 1                                       L                                R  
 2                                       L           R                       
                                               ^                             
 Returned: 15
-Target: 55 (Repeated element), Binary search variant: Hermann Bottenbruch version, one less if in the loop
+
+Variant: Hermann Bottenbruch version, one less if in the loop, target: 55 (Repeated element)
     6 6 7 10 17 25 27 33 36 44 45 50 53 53 55 55 55 57 62 64 69 70 72 85 100  n=25
     L                                                                    R  
 1                                    L                                   R  
@@ -17,7 +18,8 @@ Target: 55 (Repeated element), Binary search variant: Hermann Bottenbruch versio
 5                                                X                          
                                                  ^                          
 Returned: 16
-Target: 55 (Repeated element), Binary search variant: Python's bisect_left
+
+Variant: Python's bisect_left, target: 55 (Repeated element)
     6 6 7 10 17 25 27 33 36 44 45 50 53 53 55 55 55 57 62 64 69 70 72 85 100  n=25
     L                                                                        R
 1                                       L                                    R
@@ -27,7 +29,8 @@ Target: 55 (Repeated element), Binary search variant: Python's bisect_left
 5                                          X                                
                                            ^                                
 Returned: 14
-Target: 55 (Repeated element), Binary search variant: Python's bisect_right
+
+Variant: Python's bisect_right, target: 55 (Repeated element)
     6 6 7 10 17 25 27 33 36 44 45 50 53 53 55 55 55 57 62 64 69 70 72 85 100  n=25
     L                                                                        R
 1                                       L                                    R
@@ -37,3 +40,4 @@ Target: 55 (Repeated element), Binary search variant: Python's bisect_right
 5                                                   X                       
                                                     ^                       
 Returned: 17
+

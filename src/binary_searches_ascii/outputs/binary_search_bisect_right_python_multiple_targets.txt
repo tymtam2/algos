@@ -1,6 +1,6 @@
-Running variant: 'Python's bisect_right' for multiple targets
+Running variant 'Python's bisect_right' for multiple targets
 
-Target: -10 (Smaller than the smallest element), Binary search variant: Python's bisect_right
+Variant: Python's bisect_right, target: -10 (Smaller than the smallest element)
     6 6 7 10 17 25 27 33 36 44 45 50 53 53 55 55 55 57 62 64 69 70 72 85 100  n=25
     L                                                                        R
 1   L                                R                                      
@@ -11,7 +11,8 @@ Target: -10 (Smaller than the smallest element), Binary search variant: Python's
     ^                                                                       
 Returned: 0
 
-Target: 6 (First element), Binary search variant: Python's bisect_right
+
+Variant: Python's bisect_right, target: 6 (First element)
     6 6 7 10 17 25 27 33 36 44 45 50 53 53 55 55 55 57 62 64 69 70 72 85 100  n=25
     L                                                                        R
 1   L                                R                                      
@@ -22,7 +23,8 @@ Target: 6 (First element), Binary search variant: Python's bisect_right
         ^                                                                   
 Returned: 2
 
-Target: 50 (Not repeated element), Binary search variant: Python's bisect_right
+
+Variant: Python's bisect_right, target: 50 (Not repeated element)
     6 6 7 10 17 25 27 33 36 44 45 50 53 53 55 55 55 57 62 64 69 70 72 85 100  n=25
     L                                                                        R
 1   L                                R                                      
@@ -32,7 +34,8 @@ Target: 50 (Not repeated element), Binary search variant: Python's bisect_right
                                      ^                                      
 Returned: 12
 
-Target: 55 (Repeated element), Binary search variant: Python's bisect_right
+
+Variant: Python's bisect_right, target: 55 (Repeated element)
     6 6 7 10 17 25 27 33 36 44 45 50 53 53 55 55 55 57 62 64 69 70 72 85 100  n=25
     L                                                                        R
 1                                       L                                    R
@@ -43,7 +46,8 @@ Target: 55 (Repeated element), Binary search variant: Python's bisect_right
                                                     ^                       
 Returned: 17
 
-Target: 100 (Last element), Binary search variant: Python's bisect_right
+
+Variant: Python's bisect_right, target: 100 (Last element)
     6 6 7 10 17 25 27 33 36 44 45 50 53 53 55 55 55 57 62 64 69 70 72 85 100  n=25
     L                                                                        R
 1                                       L                                    R
@@ -53,7 +57,8 @@ Target: 100 (Last element), Binary search variant: Python's bisect_right
                                                                              ^
 Returned: 25
 
-Target: 110 (Greater than the larget element), Binary search variant: Python's bisect_right
+
+Variant: Python's bisect_right, target: 110 (Greater than the larget element)
     6 6 7 10 17 25 27 33 36 44 45 50 53 53 55 55 55 57 62 64 69 70 72 85 100  n=25
     L                                                                        R
 1                                       L                                    R
@@ -62,4 +67,5 @@ Target: 110 (Greater than the larget element), Binary search variant: Python's b
 4                                                                            X
                                                                              ^
 Returned: 25
+
 

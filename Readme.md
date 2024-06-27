@@ -1,4 +1,4 @@
-# How binary searches arrive at the destination
+# Binary searches variants
 
 The purpose of this repo is to show how differnt variants of the binary search algorithm arrive at a result.
 

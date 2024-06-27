@@ -1,6 +1,6 @@
-Running variant: 'Hermann Bottenbruch version, one less if in the loop' for multiple targets
+Running variant 'Hermann Bottenbruch version, one less if in the loop' for multiple targets
 
-Target: -10 (Smaller than the smallest element), Binary search variant: Hermann Bottenbruch version, one less if in the loop
+Variant: Hermann Bottenbruch version, one less if in the loop, target: -10 (Smaller than the smallest element)
     6 6 7 10 17 25 27 33 36 44 45 50 53 53 55 55 55 57 62 64 69 70 72 85 100  n=25
     L                                                                    R  
 1   L                             R                                         
@@ -10,7 +10,8 @@ Target: -10 (Smaller than the smallest element), Binary search variant: Hermann 
   ^                                                                         
 Returned: -1
 
-Target: 6 (First element), Binary search variant: Hermann Bottenbruch version, one less if in the loop
+
+Variant: Hermann Bottenbruch version, one less if in the loop, target: 6 (First element)
     6 6 7 10 17 25 27 33 36 44 45 50 53 53 55 55 55 57 62 64 69 70 72 85 100  n=25
     L                                                                    R  
 1   L                             R                                         
@@ -21,7 +22,8 @@ Target: 6 (First element), Binary search variant: Hermann Bottenbruch version, o
       ^                                                                     
 Returned: 1
 
-Target: 50 (Not repeated element), Binary search variant: Hermann Bottenbruch version, one less if in the loop
+
+Variant: Hermann Bottenbruch version, one less if in the loop, target: 50 (Not repeated element)
     6 6 7 10 17 25 27 33 36 44 45 50 53 53 55 55 55 57 62 64 69 70 72 85 100  n=25
     L                                                                    R  
 1   L                             R                                         
@@ -32,7 +34,8 @@ Target: 50 (Not repeated element), Binary search variant: Hermann Bottenbruch ve
                                   ^                                         
 Returned: 11
 
-Target: 55 (Repeated element), Binary search variant: Hermann Bottenbruch version, one less if in the loop
+
+Variant: Hermann Bottenbruch version, one less if in the loop, target: 55 (Repeated element)
     6 6 7 10 17 25 27 33 36 44 45 50 53 53 55 55 55 57 62 64 69 70 72 85 100  n=25
     L                                                                    R  
 1                                    L                                   R  
@@ -43,7 +46,8 @@ Target: 55 (Repeated element), Binary search variant: Hermann Bottenbruch versio
                                                  ^                          
 Returned: 16
 
-Target: 100 (Last element), Binary search variant: Hermann Bottenbruch version, one less if in the loop
+
+Variant: Hermann Bottenbruch version, one less if in the loop, target: 100 (Last element)
     6 6 7 10 17 25 27 33 36 44 45 50 53 53 55 55 55 57 62 64 69 70 72 85 100  n=25
     L                                                                    R  
 1                                    L                                   R  
@@ -54,7 +58,8 @@ Target: 100 (Last element), Binary search variant: Hermann Bottenbruch version, 
                                                                          ^  
 Returned: 24
 
-Target: 110 (Greater than the larget element), Binary search variant: Hermann Bottenbruch version, one less if in the loop
+
+Variant: Hermann Bottenbruch version, one less if in the loop, target: 110 (Greater than the larget element)
     6 6 7 10 17 25 27 33 36 44 45 50 53 53 55 55 55 57 62 64 69 70 72 85 100  n=25
     L                                                                    R  
 1                                    L                                   R  
@@ -64,4 +69,5 @@ Target: 110 (Greater than the larget element), Binary search variant: Hermann Bo
 5                                                                        X  
   ^                                                                         
 Returned: -1
+
 
