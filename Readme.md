@@ -83,3 +83,7 @@ There are two types of files available:
 # TODOs
 
 1. Fix print for L<-1 and R>0 (which is not something any of the calls returns);
+2. Make print 2 stage:
+   1. n times call "collect" -> collect l and r 
+   2. call print(steps, ...) at the end 
+   This way we can have a nicer output and maybe draw vertical lines to Ls and Rs  
