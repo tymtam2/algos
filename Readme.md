@@ -2,13 +2,32 @@
 
 The purpose of this repo is to show how differnt variants of the binary search algorithm arrive at a result.
 
+As an example, here are multiple algorithms looking for 55 which is repeated 3 times in the array.
+
 Legend:
  * `L`, `R`, `X` - locations of the left and right pointers, `X` means `L` and `R` are equal.
  * `^` - function's return value.
-
-For example, here are two algorithms lookking for 55, which is a repeated number.
 ```
-Target: 55 (Repeated element), Binary search variant: Python's bisect_left
+Variant: Base variant, target: 55 (Repeated element)
+    6 6 7 10 17 25 27 33 36 44 45 50 53 53 55 55 55 57 62 64 69 70 72 85 100  n=25
+    L                                                                    R  
+1                                       L                                R  
+2                                       L           R                       
+                                              ^                             
+Returned: 15
+
+Variant: Hermann Bottenbruch version, one less if in the loop, target: 55 (Repeated element)
+    6 6 7 10 17 25 27 33 36 44 45 50 53 53 55 55 55 57 62 64 69 70 72 85 100  n=25
+    L                                                                    R  
+1                                    L                                   R  
+2                                    L              R                       
+3                                             L     R                       
+4                                                L  R                       
+5                                                X                          
+                                                 ^                          
+Returned: 16
+
+Variant: Python's bisect_left, target: 55 (Repeated element)
     6 6 7 10 17 25 27 33 36 44 45 50 53 53 55 55 55 57 62 64 69 70 72 85 100  n=25
     L                                                                        R
 1                                       L                                    R
@@ -18,7 +37,8 @@ Target: 55 (Repeated element), Binary search variant: Python's bisect_left
 5                                          X                                
                                            ^                                
 Returned: 14
-Target: 55 (Repeated element), Binary search variant: Python's bisect_right
+
+Variant: Python's bisect_right, target: 55 (Repeated element)
     6 6 7 10 17 25 27 33 36 44 45 50 53 53 55 55 55 57 62 64 69 70 72 85 100  n=25
     L                                                                        R
 1                                       L                                    R
