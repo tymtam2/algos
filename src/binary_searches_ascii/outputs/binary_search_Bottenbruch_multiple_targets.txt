@@ -1,0 +1,67 @@
+Running variant: 'Hermann Bottenbruch version, one less if in the loop' for multiple targets
+
+Target: -10 (Smaller than the smallest element), Binary search variant: Hermann Bottenbruch version, one less if in the loop
+    6 6 7 10 17 25 27 33 36 44 45 50 53 53 55 55 55 57 62 64 69 70 72 85 100  n=25
+    L                                                                    R  
+1   L                             R                                         
+2   L           R                                                           
+3   L   R                                                                   
+4   X                                                                       
+  ^                                                                         
+Returned: -1
+
+Target: 6 (First element), Binary search variant: Hermann Bottenbruch version, one less if in the loop
+    6 6 7 10 17 25 27 33 36 44 45 50 53 53 55 55 55 57 62 64 69 70 72 85 100  n=25
+    L                                                                    R  
+1   L                             R                                         
+2   L           R                                                           
+3   L   R                                                                   
+4     L R                                                                   
+5     X                                                                     
+      ^                                                                     
+Returned: 1
+
+Target: 50 (Not repeated element), Binary search variant: Hermann Bottenbruch version, one less if in the loop
+    6 6 7 10 17 25 27 33 36 44 45 50 53 53 55 55 55 57 62 64 69 70 72 85 100  n=25
+    L                                                                    R  
+1   L                             R                                         
+2                  L              R                                         
+3                           L     R                                         
+4                              L  R                                         
+5                                 X                                         
+                                  ^                                         
+Returned: 11
+
+Target: 55 (Repeated element), Binary search variant: Hermann Bottenbruch version, one less if in the loop
+    6 6 7 10 17 25 27 33 36 44 45 50 53 53 55 55 55 57 62 64 69 70 72 85 100  n=25
+    L                                                                    R  
+1                                    L                                   R  
+2                                    L              R                       
+3                                             L     R                       
+4                                                L  R                       
+5                                                X                          
+                                                 ^                          
+Returned: 16
+
+Target: 100 (Last element), Binary search variant: Hermann Bottenbruch version, one less if in the loop
+    6 6 7 10 17 25 27 33 36 44 45 50 53 53 55 55 55 57 62 64 69 70 72 85 100  n=25
+    L                                                                    R  
+1                                    L                                   R  
+2                                                      L                 R  
+3                                                               L        R  
+4                                                                     L  R  
+5                                                                        X  
+                                                                         ^  
+Returned: 24
+
+Target: 110 (Greater than the larget element), Binary search variant: Hermann Bottenbruch version, one less if in the loop
+    6 6 7 10 17 25 27 33 36 44 45 50 53 53 55 55 55 57 62 64 69 70 72 85 100  n=25
+    L                                                                    R  
+1                                    L                                   R  
+2                                                      L                 R  
+3                                                               L        R  
+4                                                                     L  R  
+5                                                                        X  
+  ^                                                                         
+Returned: -1
+

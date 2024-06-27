@@ -1,40 +1,40 @@
 Running binary search variants for the same target: 100 (Last element)
 
-Target: 100 (Last element), Binary search variant: Wikipedia, base algo
-  6 6 7 10 17 25 27 33 36 44 45 50 53 53 55 55 55 57 62 64 69 70 72 85 100
-  L                                                                    R  
-                                      L                                R  
-                                                        L              R  
-                                                                 L     R  
-                                                                       X  
-                                                                       ^  
-<Found>
-Target: 100 (Last element), Binary search variant: Wikipedia, Hermann Bottenbruch version, one less if in the loop
-  6 6 7 10 17 25 27 33 36 44 45 50 53 53 55 55 55 57 62 64 69 70 72 85 100
-  L                                                                    R  
-                                   L                                   R  
-                                                     L                 R  
-                                                              L        R  
-                                                                    L  R  
-                                                                       X  
-                                                                       ^  
-<Found>
-Target: 100 (Last element), Binary search variant: Wikipedia, binary_search_leftmost
-  6 6 7 10 17 25 27 33 36 44 45 50 53 53 55 55 55 57 62 64 69 70 72 85 100
-  L                                                                        R
-                                      L                                    R
-                                                           L               R
-                                                                    L      R
-                                                                    L  R  
-                                                                       X  
-                                                                       ^  
-<Found>
-Target: 100 (Last element), Binary search variant: Wikipedia, binary_search_rightmost
-  6 6 7 10 17 25 27 33 36 44 45 50 53 53 55 55 55 57 62 64 69 70 72 85 100
-  L                                                                        R
-                                      L                                    R
-                                                           L               R
-                                                                    L      R
-                                                                           X
-                                                                       ^  
-<Found>
+Target: 100 (Last element), Binary search variant: Base variant
+    6 6 7 10 17 25 27 33 36 44 45 50 53 53 55 55 55 57 62 64 69 70 72 85 100  n=25
+    L                                                                    R  
+1                                       L                                R  
+2                                                         L              R  
+3                                                                  L     R  
+4                                                                        X  
+                                                                         ^  
+Returned: 24
+Target: 100 (Last element), Binary search variant: Hermann Bottenbruch version, one less if in the loop
+    6 6 7 10 17 25 27 33 36 44 45 50 53 53 55 55 55 57 62 64 69 70 72 85 100  n=25
+    L                                                                    R  
+1                                    L                                   R  
+2                                                      L                 R  
+3                                                               L        R  
+4                                                                     L  R  
+5                                                                        X  
+                                                                         ^  
+Returned: 24
+Target: 100 (Last element), Binary search variant: Python's bisect_left
+    6 6 7 10 17 25 27 33 36 44 45 50 53 53 55 55 55 57 62 64 69 70 72 85 100  n=25
+    L                                                                        R
+1                                       L                                    R
+2                                                            L               R
+3                                                                     L      R
+4                                                                     L  R  
+5                                                                        X  
+                                                                         ^  
+Returned: 24
+Target: 100 (Last element), Binary search variant: Python's bisect_right
+    6 6 7 10 17 25 27 33 36 44 45 50 53 53 55 55 55 57 62 64 69 70 72 85 100  n=25
+    L                                                                        R
+1                                       L                                    R
+2                                                            L               R
+3                                                                     L      R
+4                                                                            X
+                                                                             ^
+Returned: 25
